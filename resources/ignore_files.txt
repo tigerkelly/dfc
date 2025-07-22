@@ -1,0 +1,4 @@
+# DFC list of files to ignore.
+# Can use Java Pattern matching here.
+
+_viminfo

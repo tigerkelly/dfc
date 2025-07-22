@@ -1,0 +1,7 @@
+# Comments start with #
+# List directories to skip.
+
+AppData
+eclipse
+jnk
+.m2

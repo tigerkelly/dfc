@@ -1,0 +1,10 @@
+# Comment starts with #
+# List strings that the file ends with. No regex used.
+
+.log
+.log1
+.log2
+.0
+.lck
+.log.1
+.log.2

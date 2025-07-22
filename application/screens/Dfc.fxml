@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="aPane" prefWidth="750.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DfcController">
+   <children>
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label text="Detect FileSystem Changes">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="BOTTOM_LEFT">
+                     <children>
+                        <Label fx:id="lblVersion" />
+                     </children>
+                  </HBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="lblDirs" alignment="CENTER" onMouseReleased="#doLblDirs" prefHeight="40.0" prefWidth="50.0" style="-fx-border-color: black;" text="Dirs">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Manage Directories to watch.">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </Label>
+                  <Label fx:id="lblExts" alignment="CENTER" onMouseReleased="#doLblExts" prefHeight="40.0" prefWidth="50.0" style="-fx-border-color: black;" text="Igns">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Manage Extensions and Diectories to ignore.">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </Label>
+                  <Label fx:id="lblSettings" alignment="CENTER" onMouseReleased="#doLblSettings" prefHeight="40.0" prefWidth="50.0" style="-fx-border-color: black;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Configure settings.">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <graphic>
+                        <ImageView fx:id="imgSettings" fitHeight="32.0" fitWidth="32.0" onDragDetected="#doLblSettings" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <TableView fx:id="tableView" style="-fx-font-size: 16px;" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="tiFileName" prefWidth="130.0" text="FileName" />
+                <TableColumn fx:id="tiPath" minWidth="300.0" prefWidth="300.0" text="Path" />
+                <TableColumn fx:id="tiDate" prefWidth="150.0" text="Date" />
+                <TableColumn fx:id="tiEvent" prefWidth="70.0" text="Event" />
+                <TableColumn fx:id="tiType" prefWidth="70.0" text="Type" />
+              </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem fx:id="cmReport" mnemonicParsing="false" onAction="#doCmReport" text="Generate Report" />
+                      <MenuItem fx:id="cmView" mnemonicParsing="false" onAction="#doCmView" text="View Report" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+               <tooltip>
+                  <Tooltip text="Date = Date of event.&#10;Event = Added, Modified or Deleted&#10;Type =  Directory, File.&#10;Right click for menu.">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
